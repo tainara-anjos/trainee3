@@ -21,10 +21,10 @@ yarn-error.log*
 .angular/cache/
 .angular/config.json
 
-# NestJS
-*.js
-*.js.map
-*.d.ts
+# NestJS 
+*.js 
+*.js.map 
+*.d.ts 
 .idea/
 
 # VSCode
