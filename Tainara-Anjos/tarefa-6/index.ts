@@ -49,7 +49,7 @@ fastify.post('/items', async (request, reply) => {
   return newItem
 })
 
-// PUT /items/:id
+
 fastify.put('/items/:id', async (request, reply) => {
   const { id } = request.params as { id: string }
   const { name, cor, categoria } = request.body as {

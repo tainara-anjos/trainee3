@@ -27,7 +27,7 @@ export class UsersService {
 
   async FindAll() {
     const rows = await new Promise<any[]>((resolve, reject) =>{
-      this,this.db.all(`SELECT * FROM  users`, [], (err, rows) => {
+      this.db.all(`SELECT * FROM  users`, [], (err, rows) => {
         if (err) return reject (err);
         resolve(rows);
       });
