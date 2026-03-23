@@ -1,0 +1,196 @@
+<form #formHospital="ngForm" (ngSubmit)="cadastrar(formHospital)">
+
+  <h2>Cadastro do Paciente</h2>
+
+nome completo :
+<br>
+  <input
+    name="nome"
+    ngModel
+    #meuInput="ngModel"
+    [minlength]="5"
+    required placeholder="Digite seu nome"
+  >
+<div *ngIf="meuInput.invalid && meuInput.touched">
+  O campo nome é obrigatorio.</div>
+
+<br>
+E-mail :
+<br>
+<input
+    type="email"
+    name="email"
+    ngModel
+    #emailInput="ngModel"
+    required
+  pattern=".*@.*"
+  placeholder="Digite seu email"
+  >
+
+  <div *ngIf="emailInput.invalid && emailInput.touched">
+  <div *ngIf="emailInput.errors?.['required']">
+    Email obrigatório
+  </div>
+  <div *ngIf="emailInput.errors?.['pattern']">
+    O email precisa conter &#64;
+  </div>
+</div>
+<br>
+
+CPF:
+<br>
+<input
+  name="cpf"
+  ngModel
+  #cpfInput="ngModel"
+  [minlength]="11"
+  required
+  placeholder="Digite o CPF"
+>
+
+<div *ngIf="cpfInput.invalid && cpfInput.touched" style="color:red">
+  CPF inválido
+</div>
+<br>
+
+Telefone:
+<br>
+<input
+  type="tel"
+  name="numero"
+  ngModel
+  #numInput="ngModel"
+  [minlength]="11"
+  required
+  placeholder="Digite seu número"
+>
+<div *ngIf="numInput.touched" style="color:red">
+  <div *ngIf="numInput.errors?.['required']">
+    Telefone é obrigatório
+  </div>
+  <div *ngIf="numInput.errors?.['minlength']">
+    O número precisa ter pelo menos 11 dígitos
+  </div>
+</div>
+
+<br>
+<br>
+
+<label for="idade">Selecione entre sua idade:</label>
+<select
+id="idade"
+name="idade"
+ngModel
+#meuSelectFormControl="ngModel"
+required
+>
+<option value="menos">Menos..</option>
+<option value="16 á 20">entre 16 á 20</option>
+<option value="20 á 40">Entre 20 á 40</option>
+<option value="40 á 60">Entre 40 á 60</option>
+<option value="60 a 90">Entre 60 á 95 </option>
+<option value="mais">Mais..</option>
+</select>
+<br>
+<br>
+
+<label>Sexo: </label>
+<br>
+
+<input
+    type="radio"
+    name="sexo"
+    value="masculino"
+    ngModel
+    #sexoInput="ngModel"
+    required
+  ><label >Masculino</label>
+<label>
+  <input
+    type="radio"
+    name="sexo"
+    value="feminino"
+    ngModel
+  >
+  Feminino
+</label>
+<label>
+  <input
+    type="radio"
+    name="sexo"
+    value="outros"
+    ngModel
+  >
+  Outros
+</label>
+<br>
+<br>
+
+<label for="plano">Plano de Saude: </label>
+
+
+<select
+    type="radio"
+    name="plano"
+    ngModel
+    #planoInput="ngModel"
+    required>
+    
+    <option value="">Selecione</option>
+  <option value="sus">SUS</option>
+  <option value="unimed">Unimed</option>
+  <option value="amil">Amil</option>
+  <option value="bradesco">Bradesco Saúde</option>
+  <option value="sulamerica">SulAmérica</option>
+  <option value="hapvida">Hapvida</option>
+
+  </select>
+
+  <br>
+  <br>
+  <label for="consulta">Celecione qual Área deseja se consutar : </label>
+
+
+<select
+    name="consulta"
+    ngModel
+   #consultaInput="ngModel"
+    required>
+    
+    <option value="">Especialidade</option>
+  <option value="clínico">Clínico Geral</option>
+  <option value="pediatria">Pediatria</option>
+  <option value="cardiologia">Cardiologia</option>
+  <option value="demartologista">Dermatologia</option>
+  <option value="ortopedia">Ortopedia</option>
+  <option value="ginecologia">Ginecologia</option>
+
+  </select>
+<br>
+<br>
+
+Quais são seu sintomas:
+<br>
+<textarea name="sintomas" ngModel placeholder="Descreva os sintomas"></textarea>
+
+<br>
+Concorda com os termos do contrato:
+<input
+  type="checkbox"
+  id="leis"
+  name="leis"
+  [ngModel]="leis"
+  (ngModelChange)="onChange($event)"
+  #checkboxInput="ngModel"
+  required
+>
+
+<label for="leis">Aceito os termos</label>
+<p>Usuário concorda: {{ leis }}</p>
+
+<button [disabled]="formHospital.invalid">Cadastrar</button>
+ <div *ngIf="cadastrado" style="color:green">
+  Cadastrado com sucesso!
+</div>
+</form>
+

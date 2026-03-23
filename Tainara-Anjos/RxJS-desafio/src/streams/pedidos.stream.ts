@@ -4,7 +4,6 @@ const status = ['coletado', 'em_rota', 'entregue', 'falhou'];
 export const pedidos$ = timer(0, 2000).pipe(
    map(() => {
 
-    // 10% chance de erro
     if (Math.random() < 0.1) {
       throw new Error('Falha na comunicação com o servidor');
     }
