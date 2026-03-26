@@ -1,0 +1,73 @@
+<div class="container">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-card">
+
+    <h2>Cadastro</h2>
+
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" formControlName="nome">
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" formControlName="email">
+    </div>
+
+    <div class="form-group">
+      <label>CPF</label>
+      <input type="text" formControlName="cpf">
+      <small *ngIf="formulario.get('cpf')?.touched && formulario.get('cpf')?.invalid">
+        CPF deve ter 11 números
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Telefones</label>
+
+      <div formArrayName="telefones">
+        <div *ngFor="let tel of telefones.controls; let i = index">
+
+          <input [formControlName]="i" placeholder="Telefone">
+
+          <button type="button" (click)="removerTelefone(i)">
+            Remover
+          </button>
+
+        </div>
+      </div>
+
+      <button type="button" (click)="adicionarTelefone()">
+        + Adicionar telefone
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label>Redes sociais</label>
+
+      <div formGroupName="redes">
+
+        <div *ngFor="let rede of redes.controls | keyvalue">
+
+          <label>{{ rede.key }}</label>
+
+          <input [formControlName]="rede.key">
+
+          <button type="button" (click)="removerRede(rede.key)">
+            Remover
+          </button>
+
+        </div>
+
+      </div>
+
+      <input #novaRede placeholder="Ex: twitter">
+
+      <button type="button" (click)="adicionarRede(novaRede.value)">
+        + Adicionar rede
+      </button>
+    </div>
+
+    <button type="submit">Enviar</button>
+
+  </form>
+</div>
