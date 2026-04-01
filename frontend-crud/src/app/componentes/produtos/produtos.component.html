@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #D2B48C;">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']" style="color: #5a3e2b; font-weight: bold;">Cafeteria ☕</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto"> 
+        <li class="nav-item me-2">
+          <a class="btn btn-cadastrar" [routerLink]="['/produtos/create']">Cadastrar Produto</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-cadastrar" [routerLink]="['/produtos']">Lista de produtos </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

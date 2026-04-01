@@ -1,0 +1,221 @@
+:root {
+  --marrom-claro: #d2b48c;  /* marrom mais claro para fundo */
+  --marrom-escuro: #5a3e2b; /* cabeçalho e hover dos botões */
+  --roxo:  #a67c52;           /* bordas e botões */
+  --verde: #4CAF50;
+  --verde-hover: #45a049;
+  --vermelho: #e74c3c;
+  --bege: #f5f0e6;           /* fundo geral */
+}
+
+body {
+  background-color: var(--bege);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cabeçalho */
+header {
+  background-color: var(--marrom-escuro);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Formulário */
+form {
+  background-color: var(--marrom-claro);
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: 30px auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--marrom-escuro);
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 2px solid  #a67c52;  /* borda roxa */
+    font-size: 14px;
+    transition: 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: var(--roxo);
+      box-shadow: 0 0 5px rgba(138,43,226,0.3);
+    }
+  }
+
+  input[type="checkbox"] {
+    width: auto;
+    margin-top: 0;
+  }
+
+  .erro {
+    color: var(--vermelho);
+    font-size: 13px;
+    margin-top: 3px;
+  }
+
+  button {
+    background-color: var(--roxo); /* botão roxo */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #a67c52; /* roxo mais escuro no hover */
+    }
+  }
+
+  .mensagem {
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--marrom-escuro);
+    text-align: center;
+  }
+}
+
+/* Cards de produtos */
+.card {
+  background-color: var(--marrom-claro);
+  border: 2px solid  #a67c52; /* borda roxa */
+  border-radius: 20px;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  font-family: 'Roboto', sans-serif;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 8px 0;
+      color: #3b2e2b;
+       border-bottom: 1px solid  #5a3e2b; /* linha embaixo */
+      font-weight: 500;
+    }
+  }
+
+  button {
+    border-radius: 25px;
+    padding: 10px 22px;
+    margin-right: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  .btn-deletar {
+    background-color: #e74c3c;
+    color: white;
+
+    &:hover {
+      background-color: #c0392b;
+    }
+  }
+
+  .btn-atualizar {
+    background-color: var(--roxo);
+    color: white;
+
+    &:hover {
+      background-color: #a67c52;
+    }
+  }
+}
+
+.navbar {
+  background-color: #D2B48C; /* Marrom claro / Fendi */
+  padding: 12px 30px;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Poppins', sans-serif;
+
+  .container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navbar-brand {
+    color: #5a3e2b; /* marrom escuro */
+    font-weight: 700;
+    font-size: 22px;
+    text-decoration: none;
+  }
+
+  .navbar-toggler {
+    border: none;
+    background-color: transparent;
+
+  
+  }
+
+}
+
+/* Navbar buttons */
+.btn-cadastrar {
+  background-color: #D2B48C;    /* mesmo tom do cabeçalho */
+  color: #5a3e2b;               /* letras marrom escuro */
+  border: none;
+  border-radius: 10px;          /* cantos arredondados */
+  padding: 6px 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #b9966f;  /* escurece levemente ao passar mouse */
+    color: #fff;
+  }
+}
+
+/* Navbar links */
+.nav-link {
+  color: #5a3e2b;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-left: 10px;
+  transition: 0.3s;
+
+  &:hover {
+    color: #3e2723;  /* mais escuro ao passar mouse */
+  }
+}

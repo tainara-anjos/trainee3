@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-sm-4 offset-md-4">
+    <div class="card card-body">
+
+      <form (ngSubmit)="submitProdutos()">
+
+  <label>Nome</label>
+  <input type="text" [(ngModel)]="produto.nome" name="nome" />
+  <div class="erro" *ngIf="erroNome">{{ erroNome }}</div>
+
+  <label>Preço</label>
+  <input type="number" [(ngModel)]="produto.preco" name="preco" />
+  <div class="erro" *ngIf="erroPreco">{{ erroPreco }}</div>
+
+  <label>Descrição</label>
+  <input type="text" [(ngModel)]="produto.descricao" name="descricao" />
+
+  <label>Categoria</label>
+  <input type="text" [(ngModel)]="produto.categoria" name="categoria" />
+
+  <label>
+    <input type="checkbox" [(ngModel)]="produto.disponivel" name="disponivel" /> Disponível
+  </label>
+
+  <button type="submit">Salvar</button>
+
+  <p *ngIf="mensagem" class="mensagem">{{ mensagem }}</p>
+</form>
+
+    </div>
+  </div>
+</div>

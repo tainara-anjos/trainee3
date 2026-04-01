@@ -1,0 +1,23 @@
+ <!-- Esse código é responsável por listar os produtos na tela -->
+
+ <div *ngFor="let produto of produtos" class="card card-body mb-2">
+  <div class="row">
+    <div class="col-md-8">
+      <ul>
+        <li>id: {{ produto.id }}</li>
+        <li>name: {{ produto.nome || 'Sem nome' }}</li>
+        <li>preço: {{ produto.preco != null ? (produto.preco | currency:'BRL':'symbol':'1.2-2':'pt-BR') : 'R$ 0,00' }}</li>
+        <li>descrição: {{ produto.descricao || 'Sem descrição' }}</li>
+        <li>categoria: {{ produto.categoria || 'Sem Categoria' }}</li>
+        <li>
+          status:
+          <span *ngIf="produto.disponivel">Disponível</span>
+          <span *ngIf="!produto.disponivel">Esgotado</span>
+        </li>
+      </ul>
+
+      <button (click)="deleteProduto(produto.id)">Deletar</button>
+      <button class="btn-atualizar" [routerLink]="['/produtos/edit', produto.id]">Atualizar</button>
+    </div>
+  </div>
+</div>
